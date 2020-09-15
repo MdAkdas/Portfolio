@@ -1,0 +1,18 @@
+{% load static %}
+<div class="nav-wrapper">
+
+    <a href="{% url 'home' %}">
+        <div class="dot-wrapper">
+            <div id="dot-1" class="browser-dot"></div>
+            <div id="dot-2" class="browser-dot"></div>
+            <div id="dot-3" class="browser-dot"></div>
+        </div>
+
+    </a>
+
+    <ul id="navigation">
+        <li><a href="#contact">Contact</a></li>
+        <li><a target="_blank" href="{% static 'Resume.pdf'  %}">Resume</a></li>
+    </ul>
+
+</div>

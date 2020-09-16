@@ -200,6 +200,22 @@
 		<div class="main-container">
 			<h3 style="text-align: center">Some of my projects</h3>
 
+            <div class="post-wrapper">
+                {% for post in posts %}
+                <div>
+                    <div class="post">
+                        <img class="thumbnail" src="{% static 'images/Profile.jpeg' %}">
+                        <div class="post-preview">
+                            <h6 class="post-title">{{ post.headline }}</h6>
+                            <p class="post-intro">{{ post.sub_headline }}</p>
+                            <a href="{% url 'post' post.id %}">Read More</a>
+                        </div>
+
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
 
 
             <p align="center">

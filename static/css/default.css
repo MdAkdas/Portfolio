@@ -292,9 +292,10 @@ h6 {font-size: 16px}
 	padding-bottom: 25px;
 }
 
-#social_img{
+.post_pic{
 	width:100%;
-
+	display: block;
+	margin: 0 auto;
 }
 
 .post-wrapper{
@@ -331,6 +332,16 @@ h6 {font-size: 16px}
 .post-intro{
 	color: #4b5156;	
 	font-size: 14px;
+}
+
+.tag{
+	display: inline-block;
+	color: #fff;
+	background-color: #888;
+	border-radius: 5px;
+	margin: 2px;
+	padding: 2px 5px;
+	font-size: 12px;
 }
 
 #cantact-form{

@@ -292,10 +292,9 @@ h6 {font-size: 16px}
 	padding-bottom: 25px;
 }
 
-.post_pic{
-	width:100%;
-	display: block;
-	margin: 0 auto;
+.post-pic{
+	max-width:100%;
+	object-fit: cover;
 }
 
 .post-wrapper{

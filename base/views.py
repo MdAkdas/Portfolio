@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .models import Post
 
 from .forms import PostForm
 
-
+from .filters import PostFilter
 # Create your views here.
 
 
@@ -18,8 +18,21 @@ def home(request):
 
 
 def posts(request):
-    posts = Post.objects.filter(active=True);
-    context = {'posts': posts}
+    posts = Post.objects.filter(active=True)
+    myFilter = PostFilter(request.GET, queryset=posts)
+    posts = myFilter.qs
+
+    page = request.GET.get('page')
+    paginator = Paginator(posts, 3)
+
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+
+    context = {'posts': posts, 'myFilter': myFilter}
     return render(request, 'base/posts.html', context)
 
 

@@ -1,9 +1,27 @@
 {% extends 'base/main.html' %}
 {% load static %}
 {% block content %}
-    
+    {%  load crispy_forms_tags %}
+
+<style type="text/css">
+    #id_tags{
+        max-height: 100px;
+        overflow-y: scroll;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+</style>
+
+
 <div class="main-container">
     <h1>Posts</h1>
+
+    <form id="searchForm" method="GET">
+        {{ myFilter.form | crispy }}
+        <input class="btn btn-primary" type="submit" value="Search">
+    </form>
+
     <div class="post-wrapper">
         {% for post in posts %}
         <div>
@@ -31,6 +49,53 @@
             <h3>No Posts to show ..</h3>
         {% endfor %}
     </div>
+
+    <div class="row">
+        {% if posts.has_other_pages %}
+            <ul class="pagination">
+
+                {% if posts.has_previous %}
+                    <li class="page-item"><a data-page="1" href="?page=1" class="page-link">First</a></li>
+
+                    <li class="page-item"><a data-page="{{ posts.previous_page_number }}" href="?page={{ posts.previous_page_number }}" class="active page-link">&laquo</a></li>
+
+
+                {% endif %}
+
+                {% for i in posts.paginator.page_range %}
+                    {% if posts.number == i %}
+                        <li class="page-item"><a class="active page-link">{{ i }}</a></li>
+                    {% else %}
+                        <li class="page-item"><a data-page="{{ i }}" href="?page={{ i }}" class="page-link">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if posts.has_next %}
+                    <li class="page-item"><a data-page="{{ posts.next_page_number }}" href="?page={{ posts.next_page_number }}" class="active page-link">&raquo</a></li>
+
+                    <li class="page-item"><a data-page="{{ posts.paginator.num_pages }}" href="?page={{ posts.paginator.num_pages }}" class="page-link">Last</a></li>
+
+                {% endif %}
+            </ul>
+        {% endif %}
+
+    </div>
 </div>
+
+<script type="text/javascript">
+    let searchForm = document.getElementById('searchForm')
+    let pageLinks = document.getElementsByClassName('page-link')
+
+    for(var i=0; i< pageLinks.length; i++)
+    {
+        pageLinks[i].addEventListener('click', function (e){
+            e.preventDefault()
+            let page = this.dataset.page
+            console.log('Page', page)
+            searchForm.innerHTML+= `<input value = "${page}" name="page" hiddin>`
+            searchForm.submit()
+        })
+    }
+</script>
 
 {% endblock content%}

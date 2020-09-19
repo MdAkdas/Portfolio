@@ -1,8 +1,6 @@
-{% extends 'base/main.html' %}
-{% load static %}
+{%  extends 'base/main.html' %}
 
 {% block content %}
-
 <style type="text/css">
     html,body{
         height: 100%;
@@ -29,21 +27,17 @@
         font-size: 18px;
     }
 </style>
-
     <div id="page-wrapper">
-    <form method="POST" action="">
-        {% csrf_token %}
-
-
         <div id="success-box" class="content-block">
-            <h2>Alert!</h2>
-            <p>Are you sure you want to delete {{ item }} ?</p>
-            <input class="btn btn-danger" type="submit" value="Confirm">
-            <a id="back-btn" class="btn btn-success" href="{% url 'posts' %}"> BACK TO PROJECTS</a>
+            <h2>Thanks for reaching out!</h2>
+            <p>Your message was sent successfully. I will get back to you soon. :)</p>
+            <a id="back-btn" class="btn btn-success" href="{% url 'home' %}"> BACK TO HOME PAGE</a>
         </div>
 
-    </form>
+
     </div>
+
+
 
 
 {% endblock %}

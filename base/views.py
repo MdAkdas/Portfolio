@@ -7,6 +7,11 @@ from .models import Post
 from .forms import PostForm
 
 from .filters import PostFilter
+
+from django.core.mail import EmailMessage
+from django.conf import settings
+from django.template.loader import render_to_string
+
 # Create your views here.
 
 
@@ -36,8 +41,8 @@ def posts(request):
     return render(request, 'base/posts.html', context)
 
 
-def post(request, pk):
-    post = Post.objects.get(id=pk)
+def post(request, slug):
+    post = Post.objects.get(slug=slug)
     context = {'post': post}
     return render(request, 'base/post.html', context)
 
@@ -63,8 +68,8 @@ def createPost(request):
 
 
 @login_required(login_url="home")
-def updatePost(request, pk):
-    post = Post.objects.get(id=pk)
+def updatePost(request, slug):
+    post = Post.objects.get(slug=slug)
     form = PostForm(instance=post)
 
     if request.method == 'POST':
@@ -77,11 +82,34 @@ def updatePost(request, pk):
     return render(request, 'base/post_form.html', context)
 
 @login_required(login_url="home")
-def deletePost(request, pk):
-    post = Post.objects.get(id=pk)
+def deletePost(request, slug):
+    post = Post.objects.get(slug=slug)
     context = {'item': post}
 
     if request.method =='POST':
         post.delete()
         return redirect('posts')
     return render(request, 'base/delete.html', context)
+
+
+def sendEmail(request):
+
+    if request.method == 'POST':
+
+        template = render_to_string('base/email_template.html', {
+            'name': request.POST.get('name'),
+            'email': request.POST.get('email'),
+            'message': request.POST.get('message'),
+            })
+
+        email = EmailMessage(
+            request.POST['subject'],
+            template,
+            settings.EMAIL_HOST_USER,
+            ['ahmadakdas07@gmail.com'],
+            )
+
+        email.fail_silently = False
+        email.send()
+
+        return render(request, 'base/email_sent.html')

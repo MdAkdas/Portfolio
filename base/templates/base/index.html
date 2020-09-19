@@ -9,6 +9,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Russo+One&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 	<link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}">
 
 	<link id="theme-style" rel="stylesheet" type="text/css" href="">
@@ -132,27 +134,27 @@
 
 				<div class="about-me">
 
-					<h4>Achievments And Certificate</h4>
+					<h4>Achievements And Certificate</h4>
 
 					<ul>
 						<li>
-							<p>4* at Codechef <a target="_blank" href="#">#</a></p>
+							<p>4* at Codechef <a class="fa fa-link" aria-hidden="true" target="_blank" href="#"></a></p>
 						</li>
 						<li>
-							<p>Google Hash Code 2020 <a target="_blank" href="#">#</a></p>
+							<p>Google Hash Code 2020 <a class="fa fa-link" aria-hidden="true" target="_blank" href="#"></a></p>
 						</li>
 						<li>
-							<p>Data Structure and Algoriths By Coding Blocks <a target="_blank" href="#">#</a></p>
+							<p>Data Structure and Algoriths By Coding Blocks <a class="fa fa-link" aria-hidden="true" target="_blank" href="#"></a></p>
 						</li>
 						<li>
-							<p>GirlScript Summer of Code <a target="_blank" href="#">#</a></p>
+							<p>GirlScript Summer of Code <a class="fa fa-link" aria-hidden="true" target="_blank" href="#"></a></p>
 						</li>
 					</ul>
 					<hr>
 		
 					<h4>Top Expertise</h4>
 					
-					<p>Competetive Programming.</p>
+					<p>Competitive Programming.</p>
 					<p>Data Structure And Algorithms.</p>
 					<p>Fullstack developer with primary focus on Django + React: <a target="_blank" href="{% static 'Resume.pdf' %}">Resume</a></p>
 					<div id="skills">
@@ -169,7 +171,7 @@
 							<li> <b> Django REST Framework </b></li>
 							<li> <b> REST API </b></li>
 							<li> <b>REACT </b></li>
-							<li> <b>JavaSript</b></li>
+							<li> <b>JavaScript</b></li>
 
 						</ul>
 
@@ -182,7 +184,7 @@
 					<p>Competitive Programming</p>
 					<p>Photography</p>
 					<p>Reading</p>
-					<p>Watching Documentry and Movie</p>
+					<p>Watching Documentary and Movie</p>
 					<p>Game</p>				
 
 					
@@ -202,7 +204,7 @@
 			<h3 style="text-align: center">Some of my projects</h3>
 
             {% if request.user.is_authenticated %}
-                    <li style="text-align: center"><a href="{% url 'create_post' %}">Create Post</a></li>
+                    <li style="text-align: center"><a href="{% url 'create_post' %}">Create Project</a></li>
             {% endif %}
 
             <div class="post-wrapper">
@@ -213,7 +215,7 @@
                         <div class="post-preview">
                             <h6 class="post-title">{{ post.headline }}</h6>
                             <p class="post-intro">{{ post.sub_headline }}</p>
-                            <a href="{% url 'post' post.id %}">Read More</a>
+                            <a href="{% url 'post' post.slug %}">Read More</a>
                         </div>
 
                     </div>
@@ -223,7 +225,7 @@
             </div>
 
 
-            <p align="center">
+            <p  align="center">
                 <a href="{% url 'posts' %}"> View More </a>
             </p>
 			
@@ -235,7 +237,8 @@
 
 			<h3 id="contact" style="text-align: center">Get In Touch</h3>
 			
-			<form id="cantact-form">
+			<form id="cantact-form" method="POST" action="{% url 'send_email' %}">
+                {% csrf_token %}
 				<label>Name</label>
 				<input class="input-field" type="text" name="name">
 
@@ -243,10 +246,10 @@
 				<input class="input-field" type="text" name="subject">
 
 				<label>Email</label>
-				<input class="input-field" type="text" name="Email">
+				<input class="input-field" type="text" name="email">
 
 				<label>Message</label>
-				<textarea class="input-field name='Message"></textarea>
+				<textarea class="input-field" name="message"></textarea>
 
 
 				<input id="submit-btn" type="submit" value="Send">
@@ -258,13 +261,16 @@
 
 	<section class="s1">
 		<div class="social-links">
-					
-					<h3>Or Contact Here</h3>
 
-					<a target="_blank" href="#">Linkdin: Md Akdas Ahmad</a>
-					<br>
-					<a target="_blank" href="#">Github: MdAkdas</a>
-					
+            <h3>Or Contact Here</h3>
+
+            <div style="margin: 5px" class="fas fa-horizontal-rule">
+                <a target="_blank" href="#" class="fa fa-github fa-3x"></a>
+                <a target="_blank" href="#" class="fa fa-linkedin-square" style="font-size:45px"></a>
+                <a target="_blank" href="#" class="fa fa-instagram" style="font-size:45px"></a>
+            </div>
+
+
 		</div>
 		
 	</section>

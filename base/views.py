@@ -28,7 +28,7 @@ def posts(request):
     posts = myFilter.qs
 
     page = request.GET.get('page')
-    paginator = Paginator(posts, 3)
+    paginator = Paginator(posts, 5)
 
     try:
         posts = paginator.page(page)

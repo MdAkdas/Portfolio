@@ -289,6 +289,7 @@ h6 {font-size: 16px}
 	display: grid;
 	align-content: center;
 	text-align: center;
+	padding-top: 25px;
 	padding-bottom: 25px;
 }
 
@@ -342,8 +343,7 @@ h6 {font-size: 16px}
 	padding: 2px 5px;
 	font-size: 12px;
 }
-
-#cantact-form{
+#contact-form{
 	display: block;
 	max-width: 600px;
 	margin: 0 auto;
@@ -353,32 +353,25 @@ h6 {font-size: 16px}
 	background-color: var(--mainColor);
 	margin-bottom: 50px;
 
-	background-color: var(--secondaryColor);
-	box-shadow: var(--secondaryShadow);
-	border-radius: var(--secondaryRadius);
-
 }
+
 #contact-form label{
-	line-height: 2.7ex;
+	line-height: 2.7em;
 }
 
 #contact-form textarea{
 	min-height: 100px;
 	font-size: 14px;
-
-	background: var(--secondaryColor);
-	box-shadow: var(--inputField);
 }
 
 .input-field{
 	width: 100%;
 	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-bottom:10px;
 	background-color: var(--secondaryColor);
 	border-radius: 5px;
-	border: 1px solid var(--borderColor);
+	border:1px solid var(--borderColor);
 	font-size: 14px;
-	box-shadow: var(--inputField);
 }
 
 #submit-btn{
@@ -394,6 +387,13 @@ h6 {font-size: 16px}
 
 }
 
+
+.socialMediaLinks a {
+    font-size: 26px;
+    margin: 0 10px 0 0;
+    color: #000000;
+    text-decoration: none;
+}
 @media screen and (max-width: 1200px){
 	.main-container{
 		width: 95%;

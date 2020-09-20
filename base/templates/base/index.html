@@ -9,14 +9,15 @@
 	<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Russo+One&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}">
 
 	<link id="theme-style" rel="stylesheet" type="text/css" href="">
 	
 
 </head>
+
+
 
 <body>
 
@@ -138,7 +139,7 @@
 
 					<ul>
 						<li>
-							<p>4* at Codechef <a class="fa fa-link" aria-hidden="true" target="_blank" href="#"></a></p>
+							<p>4* at Codechef <a class="fa fa-link" aria-hidden="true" target="_blank" href="https://www.codechef.com/users/akdas123"></a></p>
 						</li>
 						<li>
 							<p>Google Hash Code 2020 <a class="fa fa-link" aria-hidden="true" target="_blank" href="#"></a></p>
@@ -156,7 +157,7 @@
 					
 					<p>Competitive Programming.</p>
 					<p>Data Structure And Algorithms.</p>
-					<p>Fullstack developer with primary focus on Django + React: <a target="_blank" href="{% static 'Resume.pdf' %}">Resume</a></p>
+                    <p>Fullstack developer with primary focus on Django as Backend </p>
 					<div id="skills">
 						<ul>
 							<li> <b> C++ </b></li>
@@ -184,8 +185,8 @@
 					<p>Competitive Programming</p>
 					<p>Photography</p>
 					<p>Reading</p>
-					<p>Watching Documentary and Movie</p>
-					<p>Game</p>				
+					<p>Watching Documentaries and Movies</p>
+					<p></p>
 
 					
 				</div>	
@@ -237,7 +238,7 @@
 
 			<h3 id="contact" style="text-align: center">Get In Touch</h3>
 			
-			<form id="cantact-form" method="POST" action="{% url 'send_email' %}">
+			<form id="contact-form" method="POST" action="{% url 'send_email' %}">
                 {% csrf_token %}
 				<label>Name</label>
 				<input class="input-field" type="text" name="name">
@@ -261,15 +262,11 @@
 
 	<section class="s1">
 		<div class="social-links">
-
-            <h3>Or Contact Here</h3>
-
-            <div style="margin: 5px" class="fas fa-horizontal-rule">
-                <a target="_blank" href="#" class="fa fa-github fa-3x"></a>
-                <a target="_blank" href="#" class="fa fa-linkedin-square" style="font-size:45px"></a>
-                <a target="_blank" href="#" class="fa fa-instagram" style="font-size:45px"></a>
+            <div class="socialMediaLinks">
+                <a target="_blank" href="https://github.com/MdAkdas" class="fa fa-github" style="font-size:40px"></a>
+                <a target="_blank" href="https://www.linkedin.com/in/md-akdas-ahmad-301925174/" class="fa fa-linkedin-square" style="font-size:40px"></a>
+                <a target="_blank" href="https://www.instagram.com/akdas__/" class="fa fa-instagram" aria-hidden="true" style="font-size:40px"></a>
             </div>
-
 
 		</div>
 		

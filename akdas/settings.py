@@ -36,9 +36,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'base.apps.BaseConfig',
+
     'crispy_forms',
     'django_filters',
+    'ckeditor',
+    'ckeditor_uploader'
 
 ]
 
@@ -138,3 +142,15 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ahmadakdas07@gmail.com'
 EMAIL_HOST_PASSWORD = 'pyjjzjnishfgrkaz'
+
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 300,
+        'width': '100%',
+    },
+}
+

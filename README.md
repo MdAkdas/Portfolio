@@ -1,6 +1,6 @@
 
 # Portfolio 
-It include information about my education, samples work, details about myself, internshhip and completed projects in the past.
+It include information about my education, samples work, details about myself, internships and completed projects in the past.
 
 Dyanamic version of https://akdas.me/
 
